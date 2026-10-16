@@ -129,6 +129,27 @@
 			color: var(--blue-dark);
 		}
 
+		.skill-list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+			margin: 1.5rem 0 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.skill-list li {
+			padding: 1.2rem;
+			border-left: 4px solid var(--accent);
+			background: #f4f8f5;
+		}
+
+		.skill-list strong {
+			display: block;
+			margin-bottom: 0.4rem;
+			color: var(--blue-dark);
+		}
+
 		pre {
 			margin: 1rem 0 0;
 			padding: 1.25rem;
@@ -147,6 +168,7 @@
 		@media (max-width: 760px) {
 			.page { width: 100%; padding: 0; }
 			.timeline { grid-template-columns: 1fr; }
+			.skill-list { grid-template-columns: 1fr; }
 			.report { padding: 1.5rem; }
 			table { display: block; overflow-x: auto; white-space: nowrap; }
 			th, td { min-width: 170px; }
@@ -237,7 +259,26 @@ app.listen(PORT, () =&gt; {
 			</section>
 
 			<section>
-				<h2>6. Conclusion &amp; Next Steps</h2>
+				<h2>6. Skills &amp; Practice Projects</h2>
+				<p>This phase reinforced modern front-end foundations through focused study and practical project work.</p>
+				<h3>Core concepts mastered</h3>
+				<ul class="skill-list">
+					<li><strong>Semantic HTML5</strong>Structured accessible pages with meaningful elements and clear document hierarchy.</li>
+					<li><strong>Advanced CSS layout</strong>Applied Flexbox and CSS Grid to create flexible, organized interfaces.</li>
+					<li><strong>Responsive, mobile-first design</strong>Designed for small screens first, then enhanced layouts for larger devices.</li>
+					<li><strong>Modern JavaScript</strong>Practiced ES6+ syntax, DOM manipulation, ES modules, Promises, and <code>async/await</code>.</li>
+				</ul>
+
+				<h3>Practice projects built</h3>
+				<ul class="skill-list">
+					<li><strong>Dynamic component library</strong>Built reusable interface components to reinforce component-driven design.</li>
+					<li><strong>Weather dashboard</strong>Fetched live API data and displayed it in an interactive dashboard.</li>
+					<li><strong>Responsive landing pages</strong>Created layouts that adapt cleanly across desktop and mobile viewports.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>7. Conclusion &amp; Next Steps</h2>
 				<p>The development environment and initial project provide a practical baseline for starting assigned Jira work, participating in code reviews, and contributing to core microservice modules.</p>
 				<footer>Report prepared by: New Developer / Engineering Onboarding &middot; October 16, 2026</footer>
 			</section>
