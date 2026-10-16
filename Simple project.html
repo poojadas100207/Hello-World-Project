@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Developer Onboarding &amp; Environment Report</title>
+	<title>Frontend Lab | Build, Explore, Ship</title>
 	<style>
 		:root {
 			color-scheme: light;
@@ -165,6 +165,178 @@
 			color: var(--muted);
 		}
 
+		.app-shell {
+			width: min(1180px, calc(100% - 2rem));
+			margin: 0 auto;
+			padding: 1.25rem 0 4rem;
+		}
+
+		.app-nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			padding: 0.5rem 0 1.5rem;
+		}
+
+		.brand {
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 1.35rem;
+			font-weight: 700;
+			color: var(--blue-dark);
+		}
+
+		.brand span { color: var(--accent); }
+
+		.nav-actions, .hero-actions, .control-row {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			flex-wrap: wrap;
+		}
+
+		.button {
+			border: 1px solid var(--blue);
+			padding: 0.7rem 1rem;
+			border-radius: 999px;
+			background: var(--blue);
+			color: #fffdf8;
+			font: inherit;
+			font-weight: 700;
+			cursor: pointer;
+		}
+
+		.button:hover, .button:focus-visible { background: var(--blue-dark); }
+		.button.secondary { background: transparent; color: var(--blue-dark); }
+		.button.secondary:hover, .button.secondary:focus-visible { background: #dcecef; }
+
+		.app-hero {
+			display: grid;
+			grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+			gap: 2rem;
+			align-items: end;
+			padding: clamp(2rem, 6vw, 5rem);
+			background: var(--blue-dark);
+			color: #fffdf8;
+			border-bottom: 6px solid var(--accent);
+		}
+
+		.app-hero h1 {
+			max-width: 680px;
+			margin: 0;
+			font-size: clamp(2.6rem, 7vw, 6.4rem);
+			line-height: 0.95;
+		}
+
+		.app-hero p:not(.eyebrow) {
+			max-width: 600px;
+			margin: 1.5rem 0 0;
+			font-size: 1.1rem;
+			line-height: 1.7;
+			color: #d9eaeb;
+		}
+
+		.hero-note {
+			padding: 1.25rem;
+			border: 1px solid #4c7f86;
+			background: rgba(255, 255, 255, 0.06);
+		}
+
+		.hero-note strong { display: block; margin-bottom: 0.5rem; color: #f5d77f; }
+
+		.app-content {
+			padding: clamp(1.25rem, 4vw, 3rem);
+			background: var(--paper);
+		}
+
+		.section-heading {
+			display: flex;
+			align-items: end;
+			justify-content: space-between;
+			gap: 1rem;
+			margin-bottom: 1.25rem;
+		}
+
+		.section-heading h2 { margin-bottom: 0; }
+		.section-heading p { margin: 0; color: var(--muted); }
+
+		.stats-grid, .feature-grid, .forecast-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1rem;
+		}
+
+		.stat, .feature, .weather-panel, .playground {
+			border: 1px solid var(--line);
+			background: #f4f8f5;
+		}
+
+		.stat { padding: 1.25rem; }
+		.stat strong { display: block; font-size: 2rem; color: var(--blue-dark); }
+		.stat span { color: var(--muted); }
+
+		.app-section {
+			padding: 3rem 0 0;
+		}
+
+		.feature { padding: 1.35rem; }
+		.feature h3 { margin-top: 0; }
+		.feature p { margin-bottom: 0; color: var(--muted); }
+
+		.playground {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) minmax(260px, 0.8fr);
+			gap: 1.5rem;
+			padding: 1.5rem;
+		}
+
+		.demo-stack { display: grid; gap: 1rem; }
+		.demo-card { padding: 1rem; background: #fffdf8; border: 1px solid var(--line); }
+		.demo-card h3 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+		.demo-card p { margin: 0 0 1rem; color: var(--muted); }
+
+		.progress-track {
+			height: 0.65rem;
+			overflow: hidden;
+			border-radius: 999px;
+			background: #d7e2df;
+		}
+
+		.progress-value {
+			width: 68%;
+			height: 100%;
+			background: var(--accent);
+			transition: width 300ms ease;
+		}
+
+		.weather-panel { padding: 1.5rem; }
+		.search-form { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; }
+		.search-form input {
+			min-width: 0;
+			flex: 1;
+			border: 1px solid var(--line);
+			padding: 0.75rem;
+			font: inherit;
+		}
+		.weather-current { min-height: 130px; padding: 1rem; background: #eaf1ee; }
+		.weather-current strong { display: block; font-size: 1.5rem; color: var(--blue-dark); }
+		.weather-current p { margin: 0.35rem 0 0; color: var(--muted); }
+		.forecast-grid { grid-template-columns: repeat(3, 1fr); margin-top: 1rem; }
+		.forecast-day { padding: 0.75rem; background: #fffdf8; border: 1px solid var(--line); }
+		.forecast-day strong, .forecast-day span { display: block; }
+		.forecast-day span { margin-top: 0.35rem; color: var(--muted); font-size: 0.9rem; }
+		.status { min-height: 1.5rem; margin: 0.75rem 0 0; color: var(--muted); font-size: 0.9rem; }
+
+		@media (max-width: 760px) {
+			.app-shell { width: 100%; padding: 0 0 2rem; }
+			.app-nav { padding: 1rem; }
+			.app-hero { grid-template-columns: 1fr; padding: 2rem 1.25rem; }
+			.app-content { padding: 1.25rem; }
+			.section-heading { display: block; }
+			.section-heading p { margin-top: 0.5rem; }
+			.stats-grid, .feature-grid, .playground { grid-template-columns: 1fr; }
+		}
+
 		@media (max-width: 760px) {
 			.page { width: 100%; padding: 0; }
 			.timeline { grid-template-columns: 1fr; }
@@ -176,113 +348,142 @@
 	</style>
 </head>
 <body>
-	<div class="page">
-		<header class="hero">
-			<p class="eyebrow">Engineering Onboarding</p>
-			<h1>Developer Onboarding &amp; Environment Report</h1>
-			<p>Setup, tools, and initial Hello World project documentation for a standardized development workflow.</p>
+	<div class="app-shell">
+		<nav class="app-nav" aria-label="Primary navigation">
+			<div class="brand">Frontend<span>/</span>Lab</div>
+			<div class="nav-actions">
+				<a class="button secondary" href="#playground">Components</a>
+				<a class="button secondary" href="#weather">Weather</a>
+			</div>
+		</nav>
+
+		<header class="app-hero">
+			<div>
+				<p class="eyebrow">Interactive practice workspace</p>
+				<h1>Build small.<br>Learn deeply.</h1>
+				<p>A hands-on front-end lab for exploring reusable UI, responsive layouts, and real API data in one place.</p>
+				<div class="hero-actions">
+					<a class="button" href="#playground">Open the lab</a>
+					<a class="button secondary" href="#weather">Try live data</a>
+				</div>
+			</div>
+			<div class="hero-note">
+				<strong>Today&apos;s focus</strong>
+				<p>Turn concepts into working interfaces: semantic structure, composed components, and asynchronous JavaScript.</p>
+			</div>
 		</header>
 
-		<main class="report">
-			<section>
-				<h2>1. Executive Summary</h2>
-				<p>This report documents the onboarding progress, development environment configuration, software stack, and initial Hello World project setup. The objective is to establish a secure, standardized workflow optimized for collaboration, code quality, and rapid feature delivery.</p>
-			</section>
-
-			<section>
-				<h2>2. Development Environment &amp; OS Setup</h2>
-				<p>The workstation baseline covers the operating systems, shells, and package managers used across the supported development environments.</p>
-				<table>
-					<thead><tr><th>Component</th><th>Specification / Version</th><th>Purpose</th></tr></thead>
-					<tbody>
-						<tr><td>Operating System</td><td>macOS Sonoma / Windows 11 Pro</td><td>Primary workstation OS</td></tr>
-						<tr><td>Terminal &amp; Shell</td><td>Zsh / PowerShell 7</td><td>Command-line interface and automation</td></tr>
-						<tr><td>Package Manager</td><td>Homebrew / WinGet</td><td>CLI software package management</td></tr>
-					</tbody>
-				</table>
-			</section>
-
-			<section>
-				<h2>3. Installed Tools &amp; Software Stack</h2>
-				<table>
-					<thead><tr><th>Category</th><th>Tool</th><th>Version &amp; Description</th></tr></thead>
-					<tbody>
-						<tr><td>IDE &amp; Editor</td><td>Visual Studio Code</td><td>v1.88 with Prettier, ESLint, and GitLens</td></tr>
-						<tr><td>Version Control</td><td>Git &amp; GitHub CLI</td><td>v2.44 for source control and pull request workflows</td></tr>
-						<tr><td>Runtime</td><td>Node.js &amp; Python</td><td>Node 20 LTS / Python 3.11</td></tr>
-						<tr><td>Containerization</td><td>Docker Desktop</td><td>v26.0 for local microservices</td></tr>
-						<tr><td>API Testing</td><td>Postman</td><td>v10.24 for REST endpoint validation</td></tr>
-					</tbody>
-				</table>
-			</section>
-
-			<section>
-				<h2>4. Onboarding Progress &amp; Milestones</h2>
-				<div class="timeline">
-					<div class="milestone"><strong>Day 1: Access &amp; Security</strong>SSO, MFA, VPN installation, and repository access request.</div>
-					<div class="milestone"><strong>Day 2: Workstation Setup</strong>IDE, Git with SSH keys, and container runtime configuration.</div>
-					<div class="milestone"><strong>Day 3: Compliance</strong>Security training modules and code of conduct review.</div>
-					<div class="milestone"><strong>Day 4: Hello World</strong>Boilerplate clone, environment variables, and initial tests.</div>
-					<div class="milestone"><strong>Day 5: First Pull Request</strong>Documentation fix and Hello World feature branch reviewed and merged.</div>
+		<main class="app-content">
+			<section class="app-section" aria-labelledby="overview-title">
+				<div class="section-heading">
+					<div><p class="eyebrow">The toolkit</p><h2 id="overview-title">A compact space to practice</h2></div>
+					<p>Three projects, one focused workspace.</p>
+				</div>
+				<div class="stats-grid">
+					<div class="stat"><strong>03</strong><span>Practice projects</span></div>
+					<div class="stat"><strong>06</strong><span>Core skills in motion</span></div>
+					<div class="stat"><strong>100%</strong><span>Built in the browser</span></div>
 				</div>
 			</section>
 
-			<section>
-				<h2>5. Initial Hello World Project</h2>
-				<h3>5.1 Project Structure</h3>
-				<pre>hello-world-app/
-|-- src/
-|   `-- index.js
-|-- package.json
-|-- Dockerfile
-`-- README.md</pre>
-
-				<h3>5.2 Application Code</h3>
-				<pre>const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.get('/', (req, res) =&gt; {
-  res.json({ message: 'Hello World! Onboarding environment successfully configured.' });
-});
-
-app.listen(PORT, () =&gt; {
-  console.log(`Server running on port ${PORT}`);
-});</pre>
-
-				<h3>5.3 Verification &amp; Testing</h3>
-				<ol>
-					<li>Executed <code>npm install</code> to resolve Express dependencies.</li>
-					<li>Ran <code>npm start</code> and verified an HTTP 200 response at <code>http://localhost:3000</code>.</li>
-					<li>Built the Docker image with <code>docker build -t hello-world .</code> and ran the container successfully.</li>
-				</ol>
+			<section class="app-section" aria-labelledby="projects-title">
+				<div class="section-heading"><div><p class="eyebrow">Project shelf</p><h2 id="projects-title">What you&apos;re building</h2></div></div>
+				<div class="feature-grid">
+					<article class="feature"><h3>Component library</h3><p>Practice reusable buttons, cards, states, and composition patterns that stay consistent as an interface grows.</p></article>
+					<article class="feature"><h3>Weather dashboard</h3><p>Use asynchronous JavaScript to find a city, fetch live forecast data, and turn a response into useful UI.</p></article>
+					<article class="feature"><h3>Responsive landing page</h3><p>Shape hierarchy, spacing, and mobile-first layouts into a polished experience that adapts to every screen.</p></article>
+				</div>
 			</section>
 
-			<section>
-				<h2>6. Skills &amp; Practice Projects</h2>
-				<p>This phase reinforced modern front-end foundations through focused study and practical project work.</p>
-				<h3>Core concepts mastered</h3>
-				<ul class="skill-list">
-					<li><strong>Semantic HTML5</strong>Structured accessible pages with meaningful elements and clear document hierarchy.</li>
-					<li><strong>Advanced CSS layout</strong>Applied Flexbox and CSS Grid to create flexible, organized interfaces.</li>
-					<li><strong>Responsive, mobile-first design</strong>Designed for small screens first, then enhanced layouts for larger devices.</li>
-					<li><strong>Modern JavaScript</strong>Practiced ES6+ syntax, DOM manipulation, ES modules, Promises, and <code>async/await</code>.</li>
-				</ul>
-
-				<h3>Practice projects built</h3>
-				<ul class="skill-list">
-					<li><strong>Dynamic component library</strong>Built reusable interface components to reinforce component-driven design.</li>
-					<li><strong>Weather dashboard</strong>Fetched live API data and displayed it in an interactive dashboard.</li>
-					<li><strong>Responsive landing pages</strong>Created layouts that adapt cleanly across desktop and mobile viewports.</li>
-				</ul>
+			<section class="app-section" id="playground" aria-labelledby="playground-title">
+				<div class="section-heading"><div><p class="eyebrow">Project one</p><h2 id="playground-title">Component playground</h2></div><p id="component-status" aria-live="polite">Ready to interact.</p></div>
+				<div class="playground">
+					<div class="demo-stack">
+						<div class="demo-card"><h3>Reusable action</h3><p>This button updates the component state without reloading the page.</p><button class="button" id="demo-button" type="button">Run interaction</button></div>
+						<div class="demo-card"><h3>Learning progress</h3><p>Move through the practice loop one interaction at a time.</p><div class="progress-track" aria-label="Learning progress"><div class="progress-value" id="progress-value"></div></div></div>
+					</div>
+					<div class="demo-card"><h3>Component notes</h3><p id="component-note">A good component gives feedback, has a clear state, and remains easy to reuse.</p><div class="control-row"><button class="button secondary" id="copy-button" type="button">Copy note</button></div></div>
+				</div>
 			</section>
 
-			<section>
-				<h2>7. Conclusion &amp; Next Steps</h2>
-				<p>The development environment and initial project provide a practical baseline for starting assigned Jira work, participating in code reviews, and contributing to core microservice modules.</p>
-				<footer>Report prepared by: New Developer / Engineering Onboarding &middot; October 16, 2026</footer>
+			<section class="app-section" id="weather" aria-labelledby="weather-title">
+				<div class="section-heading"><div><p class="eyebrow">Project two</p><h2 id="weather-title">Live weather dashboard</h2></div><p>Powered by Open-Meteo.</p></div>
+				<div class="weather-panel">
+					<form class="search-form" id="weather-form">
+						<label class="sr-only" for="city-input">Search for a city</label>
+						<input id="city-input" name="city" value="London" placeholder="Search a city" required>
+						<button class="button" type="submit">Search</button>
+					</form>
+					<div class="weather-current" id="weather-current" aria-live="polite"><strong>Loading London...</strong><p>Fetching current conditions.</p></div>
+					<div class="forecast-grid" id="forecast-grid"></div>
+					<p class="status" id="weather-status"></p>
+				</div>
 			</section>
+
+			<footer>Frontend Lab &middot; A working project for practicing the fundamentals.</footer>
 		</main>
 	</div>
+
+	<script>
+		const demoButton = document.querySelector('#demo-button');
+		const progressValue = document.querySelector('#progress-value');
+		const componentStatus = document.querySelector('#component-status');
+		const componentNote = document.querySelector('#component-note');
+		let interactionCount = 0;
+
+		demoButton.addEventListener('click', () => {
+			interactionCount += 1;
+			const progress = Math.min(68 + interactionCount * 8, 100);
+			progressValue.style.width = `${progress}%`;
+			componentStatus.textContent = `Interaction ${interactionCount} complete.`;
+			componentNote.textContent = interactionCount > 2
+				? 'You have a reusable stateful component: it accepts an action and communicates the result clearly.'
+				: 'The component changed state. Try it a few more times to move the progress bar.';
+		});
+
+		document.querySelector('#copy-button').addEventListener('click', async (event) => {
+			const originalText = event.currentTarget.textContent;
+			try {
+				await navigator.clipboard.writeText(componentNote.textContent);
+				event.currentTarget.textContent = 'Copied';
+				setTimeout(() => { event.currentTarget.textContent = originalText; }, 1200);
+			} catch {
+				componentStatus.textContent = 'Clipboard access is unavailable in this browser.';
+			}
+		});
+
+		const weatherCodes = { 0: 'Clear sky', 1: 'Mostly clear', 2: 'Partly cloudy', 3: 'Overcast', 45: 'Foggy', 51: 'Light drizzle', 61: 'Rain', 71: 'Snow', 80: 'Rain showers', 95: 'Thunderstorm' };
+		const weatherForm = document.querySelector('#weather-form');
+		const weatherCurrent = document.querySelector('#weather-current');
+		const forecastGrid = document.querySelector('#forecast-grid');
+		const weatherStatus = document.querySelector('#weather-status');
+
+		async function loadWeather(city) {
+			weatherStatus.textContent = 'Searching for the city...';
+			try {
+				const locationResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`);
+				const locationData = await locationResponse.json();
+				if (!locationData.results?.length) throw new Error('City not found');
+				const location = locationData.results[0];
+				const params = new URLSearchParams({ latitude: location.latitude, longitude: location.longitude, current: 'temperature_2m,weather_code,wind_speed_10m', daily: 'weather_code,temperature_2m_max,temperature_2m_min', forecast_days: '3', timezone: 'auto' });
+				const weatherResponse = await fetch(`https://api.open-meteo.com/v1/forecast?${params}`);
+				const data = await weatherResponse.json();
+				weatherCurrent.innerHTML = `<strong>${Math.round(data.current.temperature_2m)}${data.current_units.temperature_2m} · ${weatherCodes[data.current.weather_code] || 'Changing conditions'}</strong><p>${location.name}, ${location.country} · Wind ${Math.round(data.current.wind_speed_10m)} ${data.current_units.wind_speed_10m}</p>`;
+				forecastGrid.innerHTML = data.daily.time.map((day, index) => `<div class="forecast-day"><strong>${new Date(day).toLocaleDateString(undefined, { weekday: 'short' })}</strong><span>${weatherCodes[data.daily.weather_code[index]] || 'Mixed'}</span><span>${Math.round(data.daily.temperature_2m_max[index])} / ${Math.round(data.daily.temperature_2m_min[index])}${data.daily_units.temperature_2m_max}</span></div>`).join('');
+				weatherStatus.textContent = `Updated for ${location.name}.`;
+			} catch (error) {
+				weatherCurrent.innerHTML = '<strong>Could not load weather</strong><p>Check the city name or your network connection.</p>';
+				forecastGrid.innerHTML = '';
+				weatherStatus.textContent = error.message;
+			}
+		}
+
+		weatherForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+			loadWeather(new FormData(weatherForm).get('city'));
+		});
+
+		loadWeather('London');
+	</script>
 </body>
 </html>
