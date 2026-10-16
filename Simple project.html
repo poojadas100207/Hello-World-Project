@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Developer Onboarding &amp; Environment Report</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--ink: #182a35;
+			--muted: #58707a;
+			--paper: #fffdf8;
+			--blue: #0d6575;
+			--blue-dark: #084653;
+			--line: #d7e2df;
+			--accent: #e4b548;
+			font-family: "Trebuchet MS", Arial, sans-serif;
+			color: var(--ink);
+			background: #eaf1ee;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			background: linear-gradient(145deg, #eaf1ee 0%, #f8f2e7 52%, #dcecef 100%);
+		}
+
+		.page {
+			width: min(1100px, calc(100% - 2rem));
+			margin: 0 auto;
+			padding: 3rem 0 4rem;
+		}
+
+		.hero {
+			padding: clamp(2rem, 6vw, 4.5rem);
+			background: var(--blue-dark);
+			color: #fffdf8;
+			border-bottom: 6px solid var(--accent);
+		}
+
+		.eyebrow {
+			margin: 0 0 1rem;
+			font-size: 0.78rem;
+			font-weight: 700;
+			letter-spacing: 0.14em;
+			text-transform: uppercase;
+			color: #f5d77f;
+		}
+
+		h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+
+		h1 {
+			max-width: 760px;
+			margin: 0;
+			font-size: clamp(2.4rem, 6vw, 4.8rem);
+			line-height: 0.98;
+		}
+
+		.hero p {
+			max-width: 680px;
+			margin: 1.5rem 0 0;
+			font-size: 1.1rem;
+			line-height: 1.7;
+			color: #d9eaeb;
+		}
+
+		.report {
+			padding: clamp(1.5rem, 5vw, 3.5rem);
+			background: var(--paper);
+		}
+
+		section {
+			padding: 2.25rem 0;
+			border-bottom: 1px solid var(--line);
+		}
+
+		section:last-child { border-bottom: 0; }
+
+		h2 {
+			margin: 0 0 1rem;
+			font-size: clamp(1.7rem, 3vw, 2.5rem);
+			color: var(--blue-dark);
+		}
+
+		h3 {
+			margin: 1.75rem 0 0.75rem;
+			font-size: 1.35rem;
+			color: var(--blue);
+		}
+
+		p, li { line-height: 1.7; }
+		p { max-width: 790px; }
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 1.25rem;
+		}
+
+		th, td {
+			padding: 0.9rem 1rem;
+			border-bottom: 1px solid var(--line);
+			text-align: left;
+			vertical-align: top;
+		}
+
+		th {
+			background: #edf5f2;
+			color: var(--blue-dark);
+		}
+
+		.timeline {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			gap: 1rem;
+			margin-top: 1.5rem;
+		}
+
+		.milestone {
+			padding: 1.25rem;
+			border-top: 4px solid var(--accent);
+			background: #f4f8f5;
+		}
+
+		.milestone strong {
+			display: block;
+			margin-bottom: 0.65rem;
+			color: var(--blue-dark);
+		}
+
+		pre {
+			margin: 1rem 0 0;
+			padding: 1.25rem;
+			overflow-x: auto;
+			background: #17252b;
+			color: #e8f3ed;
+			font: 0.9rem/1.65 Consolas, "Courier New", monospace;
+		}
+
+		footer {
+			padding: 1.5rem 0 0;
+			font-size: 0.9rem;
+			color: var(--muted);
+		}
+
+		@media (max-width: 760px) {
+			.page { width: 100%; padding: 0; }
+			.timeline { grid-template-columns: 1fr; }
+			.report { padding: 1.5rem; }
+			table { display: block; overflow-x: auto; white-space: nowrap; }
+			th, td { min-width: 170px; }
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header class="hero">
+			<p class="eyebrow">Engineering Onboarding</p>
+			<h1>Developer Onboarding &amp; Environment Report</h1>
+			<p>Setup, tools, and initial Hello World project documentation for a standardized development workflow.</p>
+		</header>
+
+		<main class="report">
+			<section>
+				<h2>1. Executive Summary</h2>
+				<p>This report documents the onboarding progress, development environment configuration, software stack, and initial Hello World project setup. The objective is to establish a secure, standardized workflow optimized for collaboration, code quality, and rapid feature delivery.</p>
+			</section>
+
+			<section>
+				<h2>2. Development Environment &amp; OS Setup</h2>
+				<p>The workstation baseline covers the operating systems, shells, and package managers used across the supported development environments.</p>
+				<table>
+					<thead><tr><th>Component</th><th>Specification / Version</th><th>Purpose</th></tr></thead>
+					<tbody>
+						<tr><td>Operating System</td><td>macOS Sonoma / Windows 11 Pro</td><td>Primary workstation OS</td></tr>
+						<tr><td>Terminal &amp; Shell</td><td>Zsh / PowerShell 7</td><td>Command-line interface and automation</td></tr>
+						<tr><td>Package Manager</td><td>Homebrew / WinGet</td><td>CLI software package management</td></tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h2>3. Installed Tools &amp; Software Stack</h2>
+				<table>
+					<thead><tr><th>Category</th><th>Tool</th><th>Version &amp; Description</th></tr></thead>
+					<tbody>
+						<tr><td>IDE &amp; Editor</td><td>Visual Studio Code</td><td>v1.88 with Prettier, ESLint, and GitLens</td></tr>
+						<tr><td>Version Control</td><td>Git &amp; GitHub CLI</td><td>v2.44 for source control and pull request workflows</td></tr>
+						<tr><td>Runtime</td><td>Node.js &amp; Python</td><td>Node 20 LTS / Python 3.11</td></tr>
+						<tr><td>Containerization</td><td>Docker Desktop</td><td>v26.0 for local microservices</td></tr>
+						<tr><td>API Testing</td><td>Postman</td><td>v10.24 for REST endpoint validation</td></tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section>
+				<h2>4. Onboarding Progress &amp; Milestones</h2>
+				<div class="timeline">
+					<div class="milestone"><strong>Day 1: Access &amp; Security</strong>SSO, MFA, VPN installation, and repository access request.</div>
+					<div class="milestone"><strong>Day 2: Workstation Setup</strong>IDE, Git with SSH keys, and container runtime configuration.</div>
+					<div class="milestone"><strong>Day 3: Compliance</strong>Security training modules and code of conduct review.</div>
+					<div class="milestone"><strong>Day 4: Hello World</strong>Boilerplate clone, environment variables, and initial tests.</div>
+					<div class="milestone"><strong>Day 5: First Pull Request</strong>Documentation fix and Hello World feature branch reviewed and merged.</div>
+				</div>
+			</section>
+
+			<section>
+				<h2>5. Initial Hello World Project</h2>
+				<h3>5.1 Project Structure</h3>
+				<pre>hello-world-app/
+|-- src/
+|   `-- index.js
+|-- package.json
+|-- Dockerfile
+`-- README.md</pre>
+
+				<h3>5.2 Application Code</h3>
+				<pre>const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) =&gt; {
+  res.json({ message: 'Hello World! Onboarding environment successfully configured.' });
+});
+
+app.listen(PORT, () =&gt; {
+  console.log(`Server running on port ${PORT}`);
+});</pre>
+
+				<h3>5.3 Verification &amp; Testing</h3>
+				<ol>
+					<li>Executed <code>npm install</code> to resolve Express dependencies.</li>
+					<li>Ran <code>npm start</code> and verified an HTTP 200 response at <code>http://localhost:3000</code>.</li>
+					<li>Built the Docker image with <code>docker build -t hello-world .</code> and ran the container successfully.</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>6. Conclusion &amp; Next Steps</h2>
+				<p>The development environment and initial project provide a practical baseline for starting assigned Jira work, participating in code reviews, and contributing to core microservice modules.</p>
+				<footer>Report prepared by: New Developer / Engineering Onboarding &middot; October 16, 2026</footer>
+			</section>
+		</main>
+	</div>
+</body>
+</html>
