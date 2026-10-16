@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Basics Lab</title>
+  <style>
+    body { max-width: 42rem; margin: 3rem auto; padding: 0 1rem; font: 1rem/1.6 system-ui, sans-serif; }
+    button { padding: .6rem .9rem; cursor: pointer; }
+    #status { min-height: 1.6em; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Accessible web basics</h1>
+    <p>Semantic HTML gives the page structure that browsers and assistive technology can understand.</p>
+    <button id="check-button" type="button">Check interaction</button>
+    <p id="status" role="status"></p>
+  </main>
+  <script>
+    document.querySelector('#check-button').addEventListener('click', () => {
+      document.querySelector('#status').textContent = 'The browser event handler ran successfully.';
+    });
+  </script>
+</body>
+</html>

@@ -53,3 +53,17 @@ After validating the environment, begin assigned Jira work, participate in code 
 
 Report prepared by: New Developer / Engineering Onboarding  
 Date: October 16, 2026
+
+## Phase submission repositories
+
+The requested phase deliverables are organized as upload-ready directories:
+
+| Phase | Directory | Contents |
+| --- | --- | --- |
+| 2. Core Concepts and Skills | `core-concepts-practice/` | Data structures, algorithms, fundamentals, web basics, exercises, and self-assessment |
+| 3. Practical Implementation | `practical-implementation-project/` | Weather Lab source, setup guide, architecture, and demo checklist |
+| 4. Testing and QA | `project-qa-testing-suite/` | Jest unit/integration tests, manual checklist, coverage instructions, and bug log |
+| 5. Deployment and Production | `production-ready-deployment/` | Docker, Compose, GitHub Actions, environment template, and health check |
+| 6. Capstone Assessment | `capstone-project-master/` | Production-oriented Weather Lab source, Mermaid architecture, API docs, and publishing checklist |
+
+Each directory can be copied into its own GitHub repository with the matching repository name.

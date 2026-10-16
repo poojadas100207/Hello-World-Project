@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">Practical implementation project</p>
+      <h1>Weather Lab</h1>
+      <p>Search a city and turn live forecast data into a clear daily outlook.</p>
+    </header>
+    <form id="weather-form" class="search" novalidate>
+      <label for="city">City</label>
+      <div class="search-row">
+        <input id="city" name="city" value="London" autocomplete="address-level2" required>
+        <button type="submit">Get forecast</button>
+      </div>
+    </form>
+    <p id="status" role="status" aria-live="polite"></p>
+    <section id="forecast" aria-live="polite"></section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
